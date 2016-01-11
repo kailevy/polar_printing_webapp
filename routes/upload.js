@@ -3,8 +3,9 @@ var path = require('path');
 var fs = require('fs');
 var multiparty = require('multiparty');
 
-function upload(req, res, next) {
+function upload(req, res) {
   // adapted from https://github.com/PhoenixRacing/WebApp20/blob/master/routes/routes.js
+  logger.info('POST Upload');
   var form = new multiparty.Form();
 
   form.parse(req, function(err, fields, files) {
@@ -28,7 +29,7 @@ function upload(req, res, next) {
     fs.readFile(img.path, function (err, data) {
 
       // delete the temp file
-      fs.unlink(img.path, null);
+      fs.unlinkSync(img.path, null);
 
       if (err) {
         logger.error(err);
@@ -37,7 +38,7 @@ function upload(req, res, next) {
 
       // rename the file to milliseconds
       var time = new Date().getTime();
-      var newPath = path.join(__dirname, '../uploads', String(time) + "." + filetype);
+      var newPath = path.join(__dirname, '../public/uploads', String(time) + "." + filetype);
 
       fs.writeFile(newPath, data, function (err) {
         if (err) {
