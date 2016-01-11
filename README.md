@@ -1,2 +1,4 @@
 # polar_printing_webapp
-Webapp for POE Polar Printing Press
+Web-app for POE Polar Printing Press
+
+On Node.js v4.2.4
