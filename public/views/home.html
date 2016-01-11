@@ -1,6 +1,17 @@
 <!DOCTYPE html>
-<html>
-  <body>
+<html ng-app="printingpress">
+  <head>
+    <title>Polar Printing Press</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="javascripts/home.js"></script>
+  </head>
+  <body ng-controller="mainCtrl">
     <h1>Polar Printing Press!</h1>
+    <form action="/print" method="post">
+      <div ng-repeat="filename in imPaths">
+        <input type="radio" name="impath"  value="{{filename}}"><img src="/uploads/{{filename}}" width=100><br>
+      </div>
+      <input type="submit" value="submit">
+    </form>
   </body>
 </html>
