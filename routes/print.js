@@ -15,7 +15,7 @@ function print(req, res) {
       }
       else {
         var python = require('child_process').spawn(
-        'python',
+        'python2',
         // second argument is array of parameters, e.g.:
         [path.resolve('../spiral.py'), file_path]
         );
