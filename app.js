@@ -9,7 +9,7 @@ var routes = require('./routes/routes.js');
 var app = express();
 
 // port set up
-var PORT = process.env.PORT || 4000;
+var PORT = process.env.PORT || 8080;
 
 // middleware?
 global.logger = winston;
