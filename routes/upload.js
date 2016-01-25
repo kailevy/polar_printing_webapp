@@ -44,7 +44,12 @@ function upload(req, res) {
         if (err) {
           logger.error(err);
         }
-        res.redirect("/");
+        fs.chmod(newPath, 0666, function (err) {
+          if (err) {
+            logger.error(err);
+          }
+          res.redirect("/");
+        });
       });
     });
   });
